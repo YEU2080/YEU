@@ -1,0 +1,113 @@
+-- ============================================
+-- YEU Script Hub
+-- ============================================
+
+--  ScreenGui  Frame 
+local YEU_Gui = Instance.new("ScreenGui")
+local MainFrame = Instance.new("Frame")
+local Title = Instance.new("TextLabel")
+local LuckyBtn = Instance.new("TextButton")
+local BypassWaitBtn = Instance.new("TextButton")
+local BypassCashBtn = Instance.new("TextButton")
+
+-- GUI 
+YEU_Gui.Name = "YEUScripHub"
+YEU_Gui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+YEU_Gui.ResetOnSpawn = false
+
+MainFrame.Name = "MainFrame"
+MainFrame.Parent = YEU_Gui
+MainFrame.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+MainFrame.Position = UDim2.new(0.35, 0, 0.3, 0)
+MainFrame.Size = UDim2.new(0, 220, 0, 260)
+MainFrame.Active = true
+MainFrame.Draggable = true -- สามารถลากย้ายหน้าจอได้
+
+-- หัวข้อ YEU
+Title.Name = "Title"
+Title.Parent = MainFrame
+Title.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Title.Size = UDim2.new(1, 0, 0, 40)
+Title.Font = Enum.Font.SourceSansBold
+Title.Text = "YEU SCRIPT HUB"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextSize = 20.000
+
+local luckyEnabled = false
+local bypassWaitEnabled = false
+local bypassCashEnabled = false
+
+-- 1. Boost Lucky
+LuckyBtn.Name = "LuckyBtn"
+LuckyBtn.Parent = MainFrame
+LuckyBtn.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+LuckyBtn.Position = UDim2.new(0.1, 0, 0.22, 0)
+LuckyBtn.Size = UDim2.new(0.8, 0, 0, 40)
+LuckyBtn.Font = Enum.Font.SourceSans
+LuckyBtn.Text = "Boost Lucky: OFF"
+LuckyBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+LuckyBtn.TextSize = 16.000
+
+LuckyBtn.MouseButton1Click:Connect(function()
+    luckyEnabled = not luckyEnabled
+    if luckyEnabled then
+        LuckyBtn.Text = "Boost Lucky: ON"
+        LuckyBtn.BackgroundColor3 = Color3.fromRGB(46, 139, 87)
+        print("[YEU] Boost Lucky Activated")
+        -- ใส่โค้ดปรับค่า Lucky ของเกมตรงนี้ (ขึ้นอยู่กับตัวเกม)
+    else
+        LuckyBtn.Text = "Boost Lucky: OFF"
+        LuckyBtn.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+        print("[YEU] Boost Lucky Deactivated")
+    end
+end)
+
+-- 2. Bypass Waiting Time
+BypassWaitBtn.Name = "BypassWaitBtn"
+BypassWaitBtn.Parent = MainFrame
+BypassWaitBtn.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+BypassWaitBtn.Position = UDim2.new(0.1, 0, 0.45, 0)
+BypassWaitBtn.Size = UDim2.new(0.8, 0, 0, 40)
+BypassWaitBtn.Font = Enum.Font.SourceSans
+BypassWaitBtn.Text = "Bypass Waiting Time: OFF"
+BypassWaitBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+BypassWaitBtn.TextSize = 16.000
+
+BypassWaitBtn.MouseButton1Click:Connect(function()
+    bypassWaitEnabled = not bypassWaitEnabled
+    if bypassWaitEnabled then
+        BypassWaitBtn.Text = "Bypass Waiting Time: ON"
+        BypassWaitBtn.BackgroundColor3 = Color3.fromRGB(46, 139, 87)
+        print("[YEU] Bypass Waiting Time Activated")
+        -- rd Cooldown / Cooldown Removal
+    else
+        BypassWaitBtn.Text = "Bypass Waiting Time: OFF"
+        BypassWaitBtn.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+        print("[YEU] Bypass Waiting Time Deactivated")
+    end
+en
+
+-- 3. Bypass Cash
+BypassCashBtn.Name = "BypassCashBtn"
+BypassCashBtn.Parent = MainFrame
+BypassCashBtn.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+BypassCashBtn.Position = UDim2.new(0.1, 0, 0.68, 0)
+BypassCashBtn.Size = UDim2.new(0.8, 0, 0, 40)
+BypassCashBtn.Font = Enum.Font.SourceSans
+BypassCashBtn.Text = "Bypass Cash: OFF"
+BypassCashBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+BypassCashBtn.TextSize = 16.000
+
+BypassCashBtn.MouseButton1Click:Connect(function()
+    bypassCashEnabled = not bypassCashEnabled
+    if bypassCashEnabled then
+        BypassCashBtn.Text = "Bypass Cash: ON"
+        BypassCashBtn.BackgroundColor3 = Color3.fromRGB(46, 139, 87)
+        print("[YEU] Bypass Cash Activated")
+        -- client-side RemoteEvent
+    else
+        BypassCashBtn.Text = "Bypass Cash: OFF"
+        BypassCashBtn.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+        print("[YEU] Bypass Cash Deactivated")
+    else
+end)
